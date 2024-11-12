@@ -62,7 +62,7 @@ Open a browser and access the http://localhost:8000/browse-paintings.php webpage
 
 1. Begin by finding the project folder you have created for the Art Store. Session
    integration requires adding the session_start() function call to all pages that
-   will use session data.
+   will use session data. If your paintings are not being displayed properly, then fix the php files.
 2. Both `browse-painting.php` and `single-painting.php` contain Add to Favorites
    links styled as buttons. Modify these links so that clicking on them will take
    the user to `addToFavorites.php`. These links need to provide indicate which
