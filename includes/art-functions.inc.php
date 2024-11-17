@@ -32,13 +32,13 @@ function generateLink($url,$label) {
 function outputFilterOptions($data, $valueField, $dataField) {
   while ($single = $data->fetch()) { 
     echo '<option value=' . $single[$valueField] . '>';
-    echo utf8_encode($single[$dataField]);
+    echo ($single[$dataField]);
     echo '</option>'; 
   }       
 }
 
 function makeArtistName($first, $last) {
-    return utf8_encode($first . ' ' . $last);
+    return ($first . ' ' . $last);
 }
 
 ?>

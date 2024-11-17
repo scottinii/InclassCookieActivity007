@@ -1,8 +1,7 @@
 <?php
+session_start();
 include 'includes/data.inc.php';
 include 'includes/art-functions.inc.php';
-
-// TODO: start session
 
 // is there an ID passed?
 $id = 406;
@@ -13,11 +12,10 @@ if (isset($_GET['id'])) {
 foreach($paintings as $p) {
     if ($p["PaintingID"] == $id) $row = $p;
 }
-
 ?>
 
 <!DOCTYPE html>
-<html lang=en>   
+<html lang="en">   
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 
@@ -33,30 +31,28 @@ foreach($paintings as $p) {
     <link href="css/styles.css" rel="stylesheet">
     
 </head>
-<body >
+<body>
     
 <?php include 'includes/art-header.inc.php'; ?>
     
-<main >
+<main>
     <!-- Main section about painting -->
     <section class="ui segment grey100">
         <div class="ui doubling stackable grid container">
             <div class="nine wide column">
-              <img src="images/art/medium/<?php echo  $row['ImageFileName']; ?>.jpg" alt="..." class="ui big image" id="artwork">
-                            
-                
+              <img src="images/art/medium/<?php echo $row['ImageFileName']; ?>.jpg" alt="..." class="ui big image" id="artwork">                           
             </div>
             <div class="seven wide column">
                 
                 <!-- Main Info -->
                 <div class="item">
-                    <h2 class="header"><?php echo  utf8_encode($row['Title']); ?></h2>
-                    <h3 ><?php echo utf8_encode($row['FirstName'] . ' ' . $row['LastName']); ?></h3>
+                    <h2 class="header"><?php echo ($row['Title']); ?></h2>
+                    <h3><?php echo ($row['FirstName'] . ' ' . $row['LastName']); ?></h3>
                       <div class="meta">
-                        <p><?php echo  utf8_encode($row['Excerpt']); ?></p>
+                        <p><?php echo ($row['Excerpt']); ?></p>
                       </div>  
                 </div>                          
-                  
+                
                 <!-- Tabs For Details, Museum, Genre, Subjects -->
                 <?php include 'includes/painting-small-tabs.inc.php'; ?>
                 
@@ -72,9 +68,8 @@ foreach($paintings as $p) {
         
 </main>    
     
-
 <footer class="ui black inverted segment">
-    <div class="ui container">footer</div>
+    <div class="ui container"></div>
 </footer>
 </body>
 </html>
